@@ -1,0 +1,8 @@
+#GET single movie
+Get http://localhost:3000/api/movie/6
+###
+GET http://localhost:3000/api/movie/sort/yr_released
+###
+GET http://localhost:3000/api/movie
+###
+GET http://localhost:3000/api/movie

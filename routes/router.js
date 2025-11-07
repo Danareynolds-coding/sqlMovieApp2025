@@ -6,9 +6,14 @@ const PORT = process.env.PORT || 3000            //33 add port
 router.get('/api',(req, res)=> {                  //35
  // res.send('album api')                         //36 just checking
  res.json({                                      //37
-  'Movies': `http://localhost:${PORT}/api/movie` //38
- })                                              //39 
+  'Movies': `http://localhost:${PORT}/api/movie` 
+  //'Actors': `http://localhost:${PORT}/api/actor`
+  //'Directors':`http://localhost:${PORT}/api/director`
+  
+ })                                            
 })                                               //40
+
+router.use('/api/movie', require('./api/movieRoutes'))  //88
 
 //Error handling 41-44
 router.use((req, res, next)=> {                 //41
