@@ -1,5 +1,6 @@
 const express = require('express')                             // step 1 set up server 1-4
 const server = express()                                       //2
+const router = require('./routes/router')                      //29connect router pt1              
 const PORT = process.env.PORT || 3000                          //3
 
 
@@ -19,9 +20,11 @@ server.use(helmet.contentSecurityPolicy({                     //8 helmet config 
       }                                                       //15          
 }))                                                            //16
 
-
 server.use(cors())                                            //7  cors set up
 server.use(express.json())                                    //17 make json
 server.use(express.urlencoded({extended: true}))              //18 urls                         
+
+// '/' is  localhost:300
+server.use('/', router)                                       //30connect router pt2
 
 server.listen(PORT, ()=> console.log(`Movies are cool !`));    //4
