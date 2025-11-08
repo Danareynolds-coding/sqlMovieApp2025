@@ -1,7 +1,8 @@
-//const connect = require('../../config/dbconfig')
+const connect = require('../../config/dbconfig')
    
-//const {queryAction} = require('../../helpers/queryAction')
 
-//const genreDao = {
-//table:'genre'
-//}
+
+const genreDao = {
+table:'genre'
+}
+module.exports = genreDao

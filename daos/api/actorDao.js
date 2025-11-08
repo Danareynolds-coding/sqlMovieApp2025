@@ -1,7 +1,9 @@
-//const connect = require('../../config/dbconfig')
+const connect = require('../../config/dbconfig')
    
-//const {queryAction} = require('../../helpers/queryAction')
 
-//const actorDao = {
-//table:'actor'
-//}
+
+const actorDao = {
+table:'actor'
+}
+
+module.exports = actorDao

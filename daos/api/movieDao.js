@@ -3,7 +3,7 @@ const connect = require("../../config/dbconfig");
 const movieDao = {
   table: "movie",
   findMovieInfo: (res, table) => {
-    const sql = `SELECT m.movie_id, m.title, a.first_name, a.last_name, d.first_name, d.last_name, g.genre, m.runtime, m.nationality, m.yr_released,  m.poster,
+    const sql = `SELECT m.movie_id, m.title, m.runtime, m.nationality, m.yr_released, g.genre, a.last_name,a.first_name, d.last_name, d.first_name, m.poster,
       
       CASE
         WHEN m.budget IS NULL THEN ''
@@ -13,12 +13,12 @@ const movieDao = {
         WHEN m.gross IS NULL THEN ''
         ELSE m.gross
         END gross
-
+ 
         FROM movie m
         INNER JOIN
            movie_to_actor AS mta ON m.movie_id = mta.movie_id
         INNER JOIN 
-        actor AS a ON mta.actor_id = a.actor_id
+          actor AS a ON mta.actor_id = a.actor_id
         INNER JOIN
            movie_to_director AS mtd ON m.movie_id = mtd.movie_id
         INNER JOIN 
@@ -28,8 +28,8 @@ const movieDao = {
         INNER JOIN 
           genre AS g ON mtg.genre_id = g.genre_id
         
-        ORDER BY m.title, a.last_name, g.genre, d.last_name ;`;
-        
+        ORDER BY m.movie_id, m.title;`
+
     connect.query(sql, (error, rows) => {
       if (!error) {
         if (rows.length === 1) {
@@ -43,7 +43,7 @@ const movieDao = {
           message: "error",
           table: `${table}`,
           error: error,
-        }); //101
+        }); 
       }
     });
   },

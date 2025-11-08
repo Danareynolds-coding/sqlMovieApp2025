@@ -1,7 +1,8 @@
-//const connect = require('../../config/dbconfig')
+const connect = require('../../config/dbconfig')
    
-//const {queryAction} = require('../../helpers/queryAction')
 
-//const streaming_platformDao = {
-//table:'streaming_platform'
-//}
+
+const streaming_platformDao = {
+table:'streaming_platform'
+}
+module.exports = streaming_platformDao

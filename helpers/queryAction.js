@@ -1,6 +1,6 @@
 //const {queryAction} = require('../../helpers/queryAction')
 // queryAction(re, error, rows, table)
-const queryAction = (obj, error, row, table)=> {
+const queryAction = (obj, error, rows, table)=> {
 
         if (!error ){  
           if (rows.length === 1){

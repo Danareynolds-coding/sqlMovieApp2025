@@ -2,7 +2,7 @@ const connect = require('../../config/dbconfig')     //45
 
 const daoCommon = {                                  //46
 //methods to query db
-findAll: (req, res, table)=> {                       //47
+findAll: (res, table)=> {                       //47
 
   //sql 2 args 1.sql query 2. call back action
     connect.query(                                  //48
