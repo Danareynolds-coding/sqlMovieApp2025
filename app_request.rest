@@ -1,10 +1,24 @@
 #GET single movie
-Get http://localhost:3000/api/movie/6
+GET http://localhost:3000/api/movie/8
 ###
 GET http://localhost:3000/api/movie/sort/yr_released
 ###
-GET http://localhost:3000/api/movie
+GET http://localhost:3000/api/movie/sort/runtime
 ###
-GET http://localhost:3000/api/movie
+GET http://localhost:3000/api/actor
 ###
-GET http://localhost:3000/api/movie
+GET http://localhost:3000/api/director/sort/last_name
+###
+GET http://localhost:3000/api/genre
+###
+GET http://localhost:3000/api/production
+###
+GET http://localhost:3000/api/streaming_platform
+###
+GET http://localhost:3000/api/movie/get_movieActor/2
+###
+GET http://localhost:3000/api/movie/with_actors
+###
+GET http://localhost:3000/api/movie/get_movieDirector/6
+###
+GET http://localhost:3000/api/movie/with_genres

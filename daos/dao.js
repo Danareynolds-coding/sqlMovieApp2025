@@ -1,28 +1,28 @@
-const daoCommon = require('./common/daoCommon')   //73
+const daoCommon = require('./common/daoCommon')   
 
-const movieDao = {                                //74
-  ...daoCommon,                                   //75
-  ...require('./api/movieDao')                    //76
+const movieDao = {                                
+  ...daoCommon,                                   
+  ...require('./api/movieDao')                    
 }        
-const actorDao = {                                //74
-  ...daoCommon,                                   //75
-  ...require('./api/actorDao')                    //76
+const actorDao = {                                
+  ...daoCommon,                                   
+  ...require('./api/actorDao')                    
 } 
-const directorDao = {                                //74
-  ...daoCommon,                                   //75
-  ...require('./api/directorDao')                    //76
+const directorDao = {                                
+  ...daoCommon,                                   
+  ...require('./api/directorDao')                    
 } 
-const genreDao = {                                //74
-  ...daoCommon,                                   //75
-  ...require('./api/genreDao')                    //76
-}                                                         //77
-const productionDao = {                                //74
-  ...daoCommon,                                   //75
-  ...require('./api/productionDao')                    //76
+const genreDao = {                                
+  ...daoCommon,                                   
+  ...require('./api/genreDao')                    
+}                                                 
+const productionDao = {                           
+  ...daoCommon,                                   
+  ...require('./api/productionDao')               
 }
-const streaming_platformDao = {                                //74
-  ...daoCommon,                                   //75
-  ...require('./api/streaming_platformDao')                    //76
+const streaming_platformDao = {                                
+  ...daoCommon,                                   
+  ...require('./api/streaming_platformDao')       
 }                       
      
 module.exports = {                                
