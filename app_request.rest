@@ -22,3 +22,16 @@ GET http://localhost:3000/api/movie/with_actors
 GET http://localhost:3000/api/movie/get_movieDirector/6
 ###
 GET http://localhost:3000/api/movie/with_genres
+###
+http://localhost:3000/api/actor/sort/last_name
+###
+http://localhost:3000/api/actor/6
+###
+http://localhost:3000/api/actor/get_movieForActor/4
+###
+http://localhost:3000/api/director/get_movieForDirector/4
+###
+http://localhost:3000/api/genre/get_movieForGenre/4
+###
+http://localhost:3000/api/streaming_platform/get_movieForStreaming_platform/4
+

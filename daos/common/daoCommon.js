@@ -30,9 +30,9 @@ findAll: (res, table)=> {
 
     connect.query(                                    //90
       `SELECT * FROM ${table} WHERE ${table}_id = ${id};`, //91
-      (error, rows)=> {                                    //92
-        if (!error ){                                      //93 
-          if (rows.length === 1) {                        //94
+      (error, rows)=> {                                    
+        if (!error ){                                      
+          if (rows.length === 1) {                        
             res.json(rows[0])                             //95
           } else {
             res.json(rows)

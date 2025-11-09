@@ -36,7 +36,7 @@ const movieDao = {
     });
   },
   findMovieByActorId:(res, table, id)=>{
-    const sql = `SELECT m.title, m.movie_id, a.last_name, a.first_name
+    const sql = `SELECT m.title,  m.movie_id,m.yr_released, a.last_name, a.first_name
     FROM movie AS m
     INNER JOIN
       movie_to_actor AS mta ON m.movie_id = mta.movie_id
@@ -65,7 +65,7 @@ const movieDao = {
     });
   },
   findMovieByDirectorId:(res, table, id)=>{
-    const sql = `SELECT m.title, m.movie_id, d.last_name, d.first_name
+    const sql = `SELECT m.title, m.movie_id, m.yr_released, d.last_name, d.first_name
     FROM movie AS m
     INNER JOIN
       movie_to_director AS mtd ON m.movie_id = mtd.movie_id
@@ -95,7 +95,7 @@ const movieDao = {
   },
   findMoviesWithActors: (res, table) => {
     const sql = `SELECT 
-      m.movie_id, m.title, yr_released, m.poster,
+      m.movie_id, m.title, m.yr_released, m.poster,
       GROUP_CONCAT(CONCAT(a.first_name, ' ', a.last_name) ORDER BY a.last_name SEPARATOR ', ') AS actors
     FROM movie m
     LEFT JOIN movie_to_actor mta ON m.movie_id = mta.movie_id
@@ -120,9 +120,10 @@ const movieDao = {
       }
     });
   },
+  
   findMoviesWithGenres: (res, table) => {
     const sql = `SELECT 
-      m.movie_id, m.title, yr_released, m.poster,
+      m.movie_id, m.title, m.yr_released, m.poster,
       GROUP_CONCAT(CONCAT(g.genre,' ') ORDER BY g.genre SEPARATOR ', ') AS genres
     FROM movie m
     LEFT JOIN movie_to_genre mtg ON m.movie_id = mtg.movie_id
@@ -147,6 +148,27 @@ const movieDao = {
       }
     });
   },
+  findMovieProduction(res, table) {
+    const sql = `SELECT m.movie_id, m.title, m. yr_released, p.production
+    FROM movie AS m
+    JOIN production AS p ON m.production_id = p.production_id`
+    connect.query(sql, (error, rows) => {
+      if (!error) {
+        if (rows.length === 1) {
+          res.json(...rows);
+        } else {
+          res.json(rows);
+        }
+      } else {
+        console.log(`DAO Error: ${error}`);
+        res.json({
+          message: "error",
+          table: `${table}`,
+          error: error,
+        });
+      }
+    });
+  }
 };
 
 module.exports = movieDao;

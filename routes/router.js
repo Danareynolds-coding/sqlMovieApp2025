@@ -12,7 +12,8 @@ router.get('/api',(req, res)=> {
   'Directors':`http://localhost:${PORT}/api/director`,
   'Production':`http://localhost:${PORT}/api/production`,
   'Genres': `http://localhost:${PORT}/api/genre`,
-  'Streaming Platform': `http://localhost:${PORT}/api/streaming_platform`
+  'Streaming Platform': `http://localhost:${PORT}/api/streaming_platform`,
+  // 'Movie':`http://localhost:${PORT}/api/movie/:movie_id`
    })                                            
 })                                              
 
