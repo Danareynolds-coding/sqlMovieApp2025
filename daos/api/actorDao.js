@@ -20,17 +20,21 @@ const actorDao = {
             [id],
             (error, rows) => {
                 if (!error) {
-                    if (rows.length > 0) {
-                        res.json(rows[0])
+                    if (rows.length === 1) {
+                        res.json(...rows);
                     } else {
-                        res.status(404).json({ error: 'Actor not found' })
+                        res.json(rows);
                     }
                 } else {
-                    console.log('Dao error', error)
-                    res.status(500).json({ error: 'Database error' })
+                    console.log(`DAO Error: ${error}`);
+                    res.json({
+                        message: "error",
+                        table: `${table}`,
+                        error: error,
+                    }); 
                 }
             }
-        )    
+        );
     }
 }
 
