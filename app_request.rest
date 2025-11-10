@@ -36,3 +36,5 @@ http://localhost:3000/api/genre/get_movieForGenre/4
 http://localhost:3000/api/streaming_platform/get_movieForStreaming_platform/4
 ###
 http://localhost:3000/api/production/get_movieForProduction/3
+###
+http://localhost:3000/api/actor/get_movieForActor/1
