@@ -14,7 +14,12 @@ router.get('/get_movieForStreaming_platform/:id', (req, res)=> {
 router.get('/sort/:sorter', (req, res)=> {
   dao.sort(res, dao.table, req.params.sorter)
 })
+
 router.get('/:id', (req, res)=> {
   dao.findById(res, dao.table, req.params.id)
 })
+router.post('/create', (req, res)=> {
+  dao.create(req, res, dao.table)
+})
+
 module.exports = router

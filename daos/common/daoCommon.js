@@ -23,7 +23,7 @@ const daoCommon = {
         }
       }
     )
-  },                                                //67
+  },                                                
 
   findById: (res, table, id) => {
     connect.query(
@@ -36,7 +36,7 @@ const daoCommon = {
             res.json(rows)
           }
         } else {
-          console.log(`DAO Error: ${error}`)
+          console.log(`Dao Error: ${error}`)
           res.json({
             "message": 'error',
             'table': `${table}`,
@@ -45,7 +45,7 @@ const daoCommon = {
         }
       }
     )
-  },                                                      //105
+  },                                                      
 
   sort: (res, table, sorter) => {
     connect.query(
@@ -58,7 +58,7 @@ const daoCommon = {
             res.json(rows)
           }
         } else {
-          console.log(`DAO Error: ${error}`)
+          console.log(`Dao Error: ${error}`)
           res.json({
             "message": 'error',
             'table': `${table}`,
@@ -67,6 +67,31 @@ const daoCommon = {
         }
       }
     )
+  },
+  create: (req, res, table) => {
+    //Object.key returns array of keys
+    if (Object.keys(req.body).length === 0) {
+      res.json({
+        "error": true,
+        "message": "no fields to create"
+      })
+    } else {
+      const fields = Object.keys(req.body)
+      const values = Object.values(req.body)
+      connect.execute(
+        `INSERT INTO ${table} SET ${fields.join(' = ?,')} = ?`,
+        values, 
+        (error, dbres) => {
+          if (!error) {
+            res.json({
+              last_id: dbres.insertId
+            })
+          } else {
+            console.log(`${table}Dao error: `, error)
+          }
+        }
+      )
+    }
   }
 }
 

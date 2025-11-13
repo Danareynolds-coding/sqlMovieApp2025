@@ -6,7 +6,8 @@ const {productionDao: dao} = require('../../daos/dao')
 router.get('/', (req, res)=> {
   dao.findAll(res, dao.table)
   })
-//   http://localhost:3000/api/production/get_movieForProduction/?
+//   npm run dev
+
 router.get('/get_movieForProduction/:id', (req, res)=> {
   dao.findMovieByProduction(res, dao.table, req.params.id)
 })
@@ -17,6 +18,9 @@ router.get('/sort/:sorter', (req, res)=> {
 })
 router.get('/:id', (req, res)=> {
   dao.findById(res, dao.table, req.params.id)
+})
+router.post('/create', (req, res)=> {
+  dao.create(req, res, dao.table)
 })
 
  module.exports = router

@@ -34,31 +34,6 @@ const movieDao = {
       }
     });
   },
-  findMovieByActorId: (res, table, id) => {
-    const sql = `SELECT m.title,  m.movie_id,m.yr_released, a.last_name, a.first_name
-    FROM movie AS m
-    INNER JOIN movie_to_actor AS mta ON m.movie_id = mta.movie_id
-    INNER JOIN actor AS a ON mta.actor_id = a.actor_id 
-    WHERE a.actor_id = ?
-    ORDER BY m.title, a.last_name`
-    
-    connect.query(sql, [id], (error, rows) => {
-      if (!error) {
-        if (rows.length === 1) {
-          res.json(...rows);
-        } else {
-          res.json(rows);
-        }
-      } else {
-        console.log(`DAO Error: ${error}`);
-        res.json({
-          message: "error",
-          table: `${table}`,
-          error: error,
-        }); 
-      }
-    });
-  },
   findMovieByDirectorId: (res, table, id) => {
     const sql = `SELECT m.title, m.movie_id, m.yr_released, d.last_name, d.first_name
     FROM movie AS m
@@ -136,6 +111,31 @@ const movieDao = {
           table: `${table}`,
           error: error,
         });
+      }
+    });
+  },
+  findMovieByActorId: (res, table, id) => {
+    const sql = `SELECT m.title,  m.movie_id,m.yr_released, a.last_name, a.first_name
+    FROM movie AS m
+    INNER JOIN movie_to_actor AS mta ON m.movie_id = mta.movie_id
+    INNER JOIN actor AS a ON mta.actor_id = a.actor_id 
+    WHERE a.actor_id = ?
+    ORDER BY m.title, a.last_name`
+    
+    connect.query(sql, [id], (error, rows) => {
+      if (!error) {
+        if (rows.length === 1) {
+          res.json(...rows);
+        } else {
+          res.json(rows);
+        }
+      } else {
+        console.log(`DAO Error: ${error}`);
+        res.json({
+          message: "error",
+          table: `${table}`,
+          error: error,
+        }); 
       }
     });
   },

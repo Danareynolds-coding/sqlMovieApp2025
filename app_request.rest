@@ -38,3 +38,12 @@ http://localhost:3000/api/streaming_platform/get_movieForStreaming_platform/4
 http://localhost:3000/api/production/get_movieForProduction/3
 ###
 http://localhost:3000/api/actor/get_movieForActor/1
+###
+POST http://localhost:3000/api/artist/create
+Content-Type:application/json
+{
+  "first_name":"james",
+  "last_name":"stewart"
+}
+###
+http://localhost:3000/api/streaming_platform/7

@@ -20,8 +20,8 @@ server.use(helmet.contentSecurityPolicy({                     //8 helmet config 
       }                                                       //15          
 }))                                                            //16
 
-server.use(cors())                                            //7  cors set up
-server.use(express.json())                                    //17 make json
+server.use(cors())                                            //  cors set up
+server.use(express.json())                                   // make json
 server.use(express.urlencoded({extended: true}))              //18 urls                         
 
 // '/' is  localhost:300
