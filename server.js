@@ -21,7 +21,8 @@ server.use(helmet.contentSecurityPolicy({                     //8 helmet config 
 
 server.use(cors())                                            //  cors set up
 server.use(express.json())                                   // make json
-server.use(express.urlencoded({extended: true}))                                  
+server.use(express.urlencoded({extended: true}))
+server.use('/public', express.static('public'))              // serve static files                                  
 server.set('view engine', 'ejs')
 // '/' is  localhost:300
 server.use('/', router)                               // connect router//

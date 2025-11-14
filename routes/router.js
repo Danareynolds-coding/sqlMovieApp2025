@@ -10,6 +10,13 @@ router.get('/', (req, res)=> {
       name:"Movies to Talk About"
     })
 })
+// http://localhost:3000/actor-form
+router.get('/actor-form', (req, res)=> {
+    res.render('pages/actor-form', {
+      title: 'ACTOR FORM',
+      name: 'Add an Actor'
+    })
+})
 
 //RootRoute=> http://localhost:3000/api 
 router.get('/api',(req, res)=> {                  
@@ -21,13 +28,11 @@ router.get('/api',(req, res)=> {
   'Production':`http://localhost:${PORT}/api/production`,
   'Genres': `http://localhost:${PORT}/api/genre`,
   'Streaming Platform': `http://localhost:${PORT}/api/streaming_platform`,
-  
    })                                            
 })                                              
 
 // router.use('/api/movie', require('./api/movieRoutes'))  
-// router.use('/api/actor', require('./api/actorRoutes')) 
-// router.use('/api/production', require('./api/productionRoutes')) 
+
 
 const endpoints = [
   'movie',
@@ -44,7 +49,10 @@ endpoints.forEach(endpoint => {
 
 router.use((req, res, next)=> {                
   res.status(404)                               
-  .send('<h1>404 this page does not exist</h1>')
+  .render('pages/error', {
+    title:'error page',
+    name: '404 - Page Not Found'
+  })
 })                                              
 
 module.exports = router                         // export router
