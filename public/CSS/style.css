@@ -1,5 +1,17 @@
 
 
-.container{
-  justify-content: center;
+body{
+  background-color: rgb(153, 233, 233);
+}
+h1, h2{
+  color:navy;
+  font-weight: 800;
+}
+label{
+  color:navy;
+
+}
+footer{
+  color:navy;
+
 }
