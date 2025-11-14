@@ -1,17 +1,21 @@
 
 
 body{
-  background-color: rgb(153, 233, 233);
+  background-color: #aDE8F4;
 }
 h1, h2{
-  color:navy;
-  font-weight: 800;
+  color:#03045E;
+  font-weight:900;
+
 }
 label{
-  color:navy;
+  color:#03045E;
 
 }
 footer{
-  color:navy;
+  color:#03045E;
 
+}
+p{
+  color:#023E8A;
 }

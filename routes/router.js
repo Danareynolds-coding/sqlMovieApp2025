@@ -17,10 +17,38 @@ router.get('/actor-form', (req, res)=> {
       name: 'Add an Actor'
     })
 })
+// http://localhost:3000/director-form
+router.get('/director-form', (req, res)=> {
+    res.render('pages/director-form', {
+      title: 'DIRECTOR FORM',
+      name: 'Add a Director'
+    })
+})
+// http://localhost:3000/genre-form
+router.get('/genre-form', (req, res)=> {
+    res.render('pages/genre-form', {
+      title: 'GENRE FORM',
+      name: 'Add a Genre'
+    })
+})
+// http://localhost:3000/production-form
+router.get('/production-form', (req, res)=> {
+    res.render('pages/production-form', {
+      title: 'PRODUCTION COMPANY FORM',
+      name: 'Add a Production Company'
+    })
+})
+// http://localhost:3000/streaming_platform-form
+router.get('/streaming_platform-form', (req, res)=> {
+    res.render('pages/streaming_platform-form', {
+      title: 'STREAMING PLATFORM FORM',
+      name: 'Add a Streaming Platform'
+    })
+})
 
 //RootRoute=> http://localhost:3000/api 
 router.get('/api',(req, res)=> {                  
- // res.send('album api')                         // just checking
+ // res.send('album api')     just checking//
  res.json({                                      
   'Movies': `http://localhost:${PORT}/api/movie`, 
   'Actors': `http://localhost:${PORT}/api/actor`,
