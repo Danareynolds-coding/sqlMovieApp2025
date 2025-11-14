@@ -1,7 +1,15 @@
 const express = require('express')               
 
 const router = express.Router()                 //  define router
-const PORT = process.env.PORT || 3000            //add port
+const PORT = process.env.PORT || 3000 
+
+//http://localhost:3000
+router.get('/', (req, res)=> {
+    res.render('pages/home', {
+      title: 'movie-app home',
+      name:"Movies to Talk About"
+    })
+})
 
 //RootRoute=> http://localhost:3000/api 
 router.get('/api',(req, res)=> {                  
@@ -13,7 +21,7 @@ router.get('/api',(req, res)=> {
   'Production':`http://localhost:${PORT}/api/production`,
   'Genres': `http://localhost:${PORT}/api/genre`,
   'Streaming Platform': `http://localhost:${PORT}/api/streaming_platform`,
-  // 'Movie':`http://localhost:${PORT}/api/movie/:movie_id`
+  
    })                                            
 })                                              
 

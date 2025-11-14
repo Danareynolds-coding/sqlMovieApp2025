@@ -11,20 +11,19 @@ const cors = require('cors')                                  //6 import cors se
 
 //server.use(helmet())                                        // helmet set up not used
 server.use(helmet.contentSecurityPolicy({                     //8 helmet config 8-16
-  useDefaults:true,                                           //9
-  crossOriginResourcePolicy: false,                           //10  
-  crossOriginEmbedderPolicy: false,                           //11
-  directives:{                                                //12
-      "img-Src": ["'self'", "https: data"],                   //13                 
-      "scriptScr": ["'self'", "cdn.jsdelivr.net"]             //14
-      }                                                       //15          
-}))                                                            //16
+  useDefaults:true,                                          
+  crossOriginResourcePolicy: false,                             
+  crossOriginEmbedderPolicy: false,                           
+  directives:{                                                      "img-Src": ["'self'", "https: data"],                                   
+      "scriptScr": ["'self'", "cdn.jsdelivr.net"]             
+      }                                                                
+}))                                                           
 
 server.use(cors())                                            //  cors set up
 server.use(express.json())                                   // make json
-server.use(express.urlencoded({extended: true}))              //18 urls                         
-
+server.use(express.urlencoded({extended: true}))                                  
+server.set('view engine', 'ejs')
 // '/' is  localhost:300
-server.use('/', router)                                       //30connect router pt2
+server.use('/', router)                               // connect router//
 
-server.listen(PORT, ()=> console.log(`Movies are cool !`));    //4
+server.listen(PORT, ()=> console.log(`Movies are cool !`));    
