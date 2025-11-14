@@ -34,6 +34,16 @@ router.get('/sort/:sorter', (req, res)=> {
 //http://localhost:3000/api/:id
 router.get('/:id', (req, res)=> {               
     dao.findById(res, dao.table, req.params.id)          
-})                                                
+})  
+//POST
+router.post('/create',(req, res)=> {
+  dao.create(req, res, dao.table)
+})
+
+//PATCH
+router.patch('/update/:id', (req, res)=> {
+  dao.update(req, res,dao.table)
+})
+                                                
 
 module.exports = router                         
