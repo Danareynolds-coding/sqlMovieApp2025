@@ -26,6 +26,7 @@ router.post('/create',(req, res)=> {
 })
 
 //PATCH
+http://localhost:3000/
 router.patch('/update/:id', (req, res)=> {
   dao.update(req, res,dao.table)
 })

@@ -1,20 +1,18 @@
 const express = require('express')                             // step 1 set up server 1-4
 const server = express()                                       //2
-const router = require('./routes/router')                      //29connect router pt1              
+const router = require('./routes/router')                      //29connect router              
 const PORT = process.env.PORT || 3000                          //3
 
-
-
-const helmet = require('helmet')                              //5 import helmet security
-const cors = require('cors')                                  //6 import cors security
-
+const helmet = require('helmet')                            
+const cors = require('cors')                                  
 
 //server.use(helmet())                                        // helmet set up not used
 server.use(helmet.contentSecurityPolicy({                     //8 helmet config 8-16
   useDefaults:true,                                          
   crossOriginResourcePolicy: false,                             
   crossOriginEmbedderPolicy: false,                           
-  directives:{                                                      "img-Src": ["'self'", "https: data"],                                   
+  directives:{                                           
+      "img-Src": ["'self'", "https: data"],                                   
       "scriptScr": ["'self'", "cdn.jsdelivr.net"]             
       }                                                                
 }))                                                           

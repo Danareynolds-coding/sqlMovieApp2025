@@ -106,12 +106,12 @@ const daoCommon = {
         "message": "No fields to update"
       })
     } else {
-      const fields = Object.keys(req.body)
-      const values = Object.values(req.body)
+      const fields = Object.keys(req.body) //array of keys
+      const values = Object.values(req.body) //array of values
 
         connect.execute(
           `UPDATE ${table}
-          SET ${fields.join(' = ?')} = ? 
+          SET ${fields.join(' = ?,')} = ? 
           WHERE ${table}_id = ?;`,
           [...values, req.params.id],
           (error, dbres)=> {

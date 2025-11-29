@@ -4,7 +4,6 @@ const movieDao = {
   table: "movie",
   findMovieInfo: (res, table) => {
     const sql = `SELECT m.movie_id, m.title, m.rating, m.runtime, m.nationality, m.yr_released, m.showing, m.poster,
-      
       CASE
         WHEN m.budget IS NULL THEN ''
         ELSE m.budget
@@ -13,7 +12,6 @@ const movieDao = {
         WHEN m.gross IS NULL THEN ''
         ELSE m.gross
         END gross
-      
       FROM movie m
       ORDER BY m.movie_id, m.title;`
 

@@ -10,17 +10,19 @@ router.get('/', (req, res)=> {
       name:"Movies to Talk About"
     })
 })
-// http://localhost:3000/actor-form
-router.get('/actor-form', (req, res)=> {
-    res.render('pages/actor-form', {
-      title: 'ACTOR FORM',
+
+// http://localhost:3000/actors-form
+router.get('/actors-form', (req, res)=> {
+    res.render('pages/actors-form', {
+      title: 'Actors Form',
       name: 'Add an Actor'
     })
 })
-// http://localhost:3000/director-form
-router.get('/director-form', (req, res)=> {
-    res.render('pages/director-form', {
-      title: 'DIRECTOR FORM',
+
+// http://localhost:3000/directors-form
+router.get('/directors-form', (req, res)=> {
+    res.render('pages/directors-form', {
+      title: 'Directors Form',
       name: 'Add a Director'
     })
 })
@@ -55,7 +57,7 @@ router.get('/api',(req, res)=> {
   'Directors':`http://localhost:${PORT}/api/director`,
   'Production':`http://localhost:${PORT}/api/production`,
   'Genres': `http://localhost:${PORT}/api/genre`,
-  'Streaming Platform': `http://localhost:${PORT}/api/streaming_platform`,
+  'Streaming Platform': `http://localhost:${PORT}/api/streaming_platform`
    })                                            
 })                                              
 
@@ -81,6 +83,9 @@ router.use((req, res, next)=> {
     title:'error page',
     name: '404 - Page Not Found'
   })
-})                                              
+})                    // http://localhost:3000/actors-form
+
+                          
+  
 
 module.exports = router                         // export router
